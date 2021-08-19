@@ -1,0 +1,9 @@
+# sends logs to an arbitrary HTTP endpoint, as Newline Delimited JSON by default
+# docs: https://vector.dev/docs/reference/configuration/sinks/http/
+
+[sinks.http]
+  type = "http"
+  inputs = ["${INPUT_ID:-log_json}"]
+  encoding.codec = "${CODEC:-ndjson}"
+  compression = "${COMPRESSION:-none}"
+  uri = "${HTTP_ENDPOINT}"
